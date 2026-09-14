@@ -1,0 +1,206 @@
+{
+  "info": {
+    "name": "SDM API",
+    "description": "Collection Postman pour l'API private de concert, salle et groupe.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "apiKey",
+      "value": "VOTRE_CLE_API",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Concerts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{apiKey}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/concerts?groupId=12&city=Paris&includePast=false&page=1&limit=20",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "concerts"
+          ],
+          "query": [
+            { "key": "groupId", "value": "12" },
+            { "key": "city", "value": "Paris" },
+            { "key": "includePast", "value": "false" },
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "20" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Concert By Id",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{apiKey}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/concerts/42",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "concerts",
+            "42"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Venue By Id",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{apiKey}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/venues/9",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "venues",
+            "9"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Venue Concerts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{apiKey}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/venues/9/concerts?includePast=true&page=1&limit=10",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "venues",
+            "9",
+            "concerts"
+          ],
+          "query": [
+            { "key": "includePast", "value": "true" },
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "10" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Group By Id",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{apiKey}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/groups/12",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "groups",
+            "12"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Group Concerts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{apiKey}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/groups/12/concerts?includePast=true&page=1&limit=10",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "groups",
+            "12",
+            "concerts"
+          ],
+          "query": [
+            { "key": "includePast", "value": "true" },
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "10" }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

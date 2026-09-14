@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Concerts {
+  NumConcert            Int      @id @map("NumConcert")
+  DateHeureConcert      DateTime @map("DateHeureConcert")
+  NumPaysConcert        Int      @map("NumPaysConcert")
+  NumDepartementConcert String   @map("NumDepartementConcert")
+  VilleConcert          String   @map("VilleConcert")
+  SalleConcert          String   @map("SalleConcert")
+  AdresseConcert        String?  @map("AdresseConcert")
+  id_salle              Int?     @map("id_salle")
+  created_at            DateTime? @map("created_at")
+  updated_at            DateTime? @map("updated_at")
+
+  @@map("concerts")
+}
+
+model Salles {
+  salle_id     Int     @id @map("salle_id")
+  departement  String  @map("departement")
+  ville        String  @map("ville")
+  salle        String  @map("salle")
+  adresse      String  @map("adresse")
+  code_postal  String  @map("code_postal")
+  latitude     Decimal @map("latitude")
+  longitude    Decimal @map("longitude")
+  pays         String  @map("pays")
+  activity     String  @map("activity")
+  created_at   DateTime? @map("created_at")
+  updated_at   DateTime? @map("updated_at")
+
+  @@map("salles")
+}
+
+model Groupes {
+  NumGroupe           Int     @id @map("NumGroupe")
+  NomGroupe           String  @map("NomGroupe")
+  WebOfficielGroupe   String? @map("WebOfficielGroupe")
+  style               String? @map("style")
+  twitter             String? @map("twitter")
+
+  @@map("groupes")
+}
+
+model Liaisonconcertsgroupes {
+  NumConcert               Int     @map("NumConcert")
+  NumGroupe                Int     @map("NumGroupe")
+  PositionGroupeSurAffiche Int     @map("PositionGroupeSurAffiche")
+  StyleMusicalGroupe       String  @map("StyleMusicalGroupe")
+
+  @@id([NumConcert, NumGroupe])
+  @@map("liaisonconcertsgroupes")
+}

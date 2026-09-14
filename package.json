@@ -1,0 +1,32 @@
+{
+  "name": "sdm-api",
+  "version": "1.0.0",
+  "description": "Private API for concerts, venues and groups",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "prisma:generate": "prisma generate",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "api",
+    "express",
+    "prisma",
+    "mysql"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@prisma/client": "^5.22.0",
+    "nodemon": "^3.1.14",
+    "prisma": "^5.22.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "zod": "^4.6.4"
+  }
+}
